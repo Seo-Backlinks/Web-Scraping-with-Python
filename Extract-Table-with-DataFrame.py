@@ -7,6 +7,8 @@ from tabulate import tabulate
 #Connect to the website
 res = requests.get("https://www.dcrustedp.in/show_chart.php")
 soup = BeautifulSoup(res.content,'lxml')
+
+#Finding & reading the table on webpage
 table = soup.find_all('table')[0]
 df = pd.read_html(str(table))
 
